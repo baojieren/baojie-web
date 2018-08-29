@@ -1,0 +1,12 @@
+spring:
+  freemarker:
+    expose-session-attributes: true
+
+# dubbo
+dubbo:
+  application:
+    id: rbjWeb
+    name: rbjWebName
+    qosEnable: false
+
+url: dubbo://192.168.0.108:20880
