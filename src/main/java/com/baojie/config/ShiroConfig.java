@@ -1,6 +1,8 @@
 package com.baojie.config;
 
 import com.baojie.auth.ShiroRealm;
+import org.apache.shiro.authc.credential.CredentialsMatcher;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -20,7 +22,15 @@ public class ShiroConfig {
      */
     @Bean
     public ShiroRealm shiroRealm() {
-        return new ShiroRealm();
+        ShiroRealm realm = new ShiroRealm();
+        HashedCredentialsMatcher hashMatcher = new HashedCredentialsMatcher();
+        hashMatcher.setHashAlgorithmName("MD5");
+        //true:加密用的是Hex编码；false:用Base64编码
+        hashMatcher.setStoredCredentialsHexEncoded(true);
+        //加密次数
+        hashMatcher.setHashIterations(1024);
+        realm.setCredentialsMatcher(hashMatcher);
+        return realm;
     }
 
     @Bean
