@@ -4,8 +4,7 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
 import com.baojie.entity.User;
 import com.baojie.service.UserService;
-import com.baomidou.mybatisplus.mapper.Condition;
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +21,7 @@ public class UserController {
     public String hello(Model model, Integer id) {
         User u = new User();
         u.setId(id);
-        User user = userService.selectOne(new EntityWrapper<>(u));
+        User user = userService.getUserByCond(u);
         return JSON.toJSONString(user);
     }
 }

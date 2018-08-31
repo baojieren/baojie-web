@@ -3,7 +3,6 @@ package com.baojie.auth;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.baojie.entity.User;
 import com.baojie.service.UserService;
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -42,7 +41,7 @@ public class ShiroRealm extends AuthorizingRealm {
         try {
             User u = new User();
             u.setUserName(token.getUsername());
-            user = userService.selectOne(new EntityWrapper<>(u));
+            user = userService.getUserByCond(u);
         } catch (Exception e) {
             e.printStackTrace();
         }
