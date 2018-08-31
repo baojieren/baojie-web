@@ -70,7 +70,7 @@
     var index = 1;
     $(function () {
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "/getBingImgJson.html",
             dataType: "json",
             async: true,

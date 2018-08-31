@@ -16,7 +16,7 @@ public class UserController {
     @Reference(url = "${url}", timeout = 30000)
     private UserService userService;
 
-    @RequestMapping("/")
+    @RequestMapping("/user.html")
     @ResponseBody
     public String hello(Model model) {
         User byId = userService.getById(2);

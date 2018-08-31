@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baojie.entity.BingImg;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.BufferedReader;
@@ -20,7 +21,7 @@ public class BingController {
     /**
      * 获取8天的bing图片json数据
      */
-    @GetMapping("/getBingImgJson.html")
+    @PostMapping("/getBingImgJson.html")
     public String getBingImgJson() throws Exception {
         URL url = new URL("https://cn.bing.com/HPImageArchive.aspx?format=js&idx=-1&n=8");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();

@@ -9,6 +9,7 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
+import org.springframework.stereotype.Component;
 
 //@Component
 public class ShiroRealm extends AuthorizingRealm {
@@ -38,7 +39,7 @@ public class ShiroRealm extends AuthorizingRealm {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         User user = null;
         try {
-            //user = userService.selectOne(new EntityWrapper<User>().eq("user_name", token.getUsername()));
+            //user = userService.getOne()
         } catch (Exception e) {
             e.printStackTrace();
         }
