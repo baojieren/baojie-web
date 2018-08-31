@@ -9,4 +9,4 @@ dubbo:
     name: rbjWebName
     qosEnable: false
 
-url: dubbo://192.168.3.187:20880
+url: dubbo://192.168.0.108:20880

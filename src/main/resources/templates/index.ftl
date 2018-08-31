@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Foreach</title>
+    <title>baojie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta content="宝杰任" name="keywords">
     <meta content="宝杰任" name="description">
@@ -18,6 +18,16 @@
         .rbj-bg-color{
             background-color: rgb(40, 40, 40, 0.6)
         }
+        #rbj-nav-content a{
+            color: white;
+            font-weight: bolder;
+            cursor: pointer;
+            background-color: rgb(0, 0, 0, 0);
+        }
+        #rbj-nav-content a:hover{
+            color: #5eb257;
+            background-color: rgb(0, 0, 0, 0);
+        }
     </style>
 </head>
 <body class="img-responsive">
@@ -27,13 +37,22 @@
     <div class="container-fluid">
         <div class="col-md-12 col-sm-12">
             <h3 style="color: white"></h3>
-            <button onclick="switchBingImg(1)" type="button" class="btn btn-primary"><i class="glyphicon glyphicon-chevron-left"></i></button>&nbsp;
-            <button onclick="switchBingImg(-1)" type="button" class="btn btn-success"><i class="glyphicon glyphicon-chevron-right"></i></button>&nbsp;
+            <a onclick="switchBingImg(1)" style="font-size: 30px;color: white; text-decoration: none">
+                <i class="glyphicon glyphicon-hand-left"></i>
+            </a>&nbsp;&nbsp;
+            <a onclick="switchBingImg(-1)" style="font-size: 30px;color: white; text-decoration: none">
+                <i class="glyphicon glyphicon-hand-right"></i>
+            </a>&nbsp;&nbsp;
+            <a onclick="" style="font-size: 30px;color: white">
+                <i class="glyphicon glyphicon-hand-down"></i>
+            </a>
             <#--<button id="" type="button" class="btn btn-warning">保存到本地</button>&nbsp;-->
             <#--<button id="" type="button" class="btn btn-danger">保存到服务器</button>-->
         </div>
     </div>
 </div>
+<a href="http://www.miitbeian.gov.cn" style="position: fixed;width: 100%;bottom: 2px;color: white;text-align: right"
+   target="_blank">黔ICP备18008276号</a>
 <#--登陆注册modal-->
 <div class="modal fade" id="rbj-sign-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -48,7 +67,7 @@
             <div class="modal-body">
                 <form id="rbj-sign-form">
                     <input name="username" type="text" class="form-control" placeholder="用户名"><br>
-                    <input name="password" type="password" class="form-control" placeholder="密码"><br>
+                    <input name="password" type="password" class="form-control" placeholder="密码" ><br>
                     <input name="email" type="email" class="form-control" placeholder="邮箱" style="display: none">
                     <p id="rbj-sign-tip" class="pull-right" style="color: white">没有账户?
                         <a onclick="switch2SignUp()" style="color: #5eb257">注册</a>
@@ -89,11 +108,11 @@
     function switchBingImg(count) {
         if (index === 7 && count === 1) {
             swal({
-                title: '过去的就让它过去',
-                html:'成为远远的远',
+                title: '<p style="color: white">过去的就让它过去</p>',
+                html: '<p style="color: white">成为远远的远</p>',
                 //warning，error，success，info和question
                 type: 'info',
-                background:'rgb(40, 40, 40, 0.6)',
+                background: 'rgb(40, 40, 40, 0.6)',
                 animation: true,
                 showConfirmButton: false,
                 timer: 2000
@@ -102,10 +121,10 @@
         }
         if (index === 0 && count === -1) {
             swal({
-                title: '明天很美',
-                html:'但愿后天也是',
+                title: '<p style="color: white">明天很美</p>',
+                html: '<p style="color: white">但愿后天也是</p>',
                 type: 'info',
-                background:'rgb(40, 40, 40, 0.6)',
+                background: 'rgb(40, 40, 40, 0.6)',
                 animation: true,
                 showConfirmButton: false,
                 timer: 2000
@@ -137,19 +156,45 @@
         $("#rbj-sign-tip").hide();
     }
 
+    // 登陆注册
     $("#rbj-sign-btn").click(function () {
         $.ajax({
             type: "POST",
-            url: "/getBingImgJson.html",
+            url: $(this).html() == "登陆" ? "/user/signIn.html" : "/user/signUp.html",
+            data: $("#rbj-sign-form").serialize(),
             dataType: "json",
-            async: true,
+            async: false,
             success: function (dat) {
-                bingArray = dat;
-                $("#rbj-bing h3").text(bingArray[index].copyright);
-                $("body").css({
-                    "background": "url(" + bingArray[index].url + ")",
-                    "backgroundAttachment": "fixed"
-                });
+                if (dat.state == 1) {
+                    if (null == dat.id) {
+                        location.reload();
+                    } else {
+                        swal({
+                            title: '<p style="color: white">注册成功</p>',
+                            html: '<p style="color: white">已自动登陆</p>',
+                            //warning，error，success，info和question
+                            type: 'success',
+                            background: 'rgb(40, 40, 40, 0.6)',
+                            animation: true,
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2000);
+                    }
+                } else {
+                    swal({
+                        title: '<p style="color: white">登陆失败</p>',
+                        html: '<p style="color: white">' + dat.message + '</p>',
+                        //warning，error，success，info和question
+                        type: 'error',
+                        background: 'rgb(40, 40, 40, 0.6)',
+                        animation: true,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
             }
         });
     })

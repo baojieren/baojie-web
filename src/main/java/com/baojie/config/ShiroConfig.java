@@ -1,7 +1,6 @@
 package com.baojie.config;
 
 import com.baojie.auth.ShiroRealm;
-import org.apache.shiro.authc.credential.CredentialsMatcher;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
@@ -45,7 +44,7 @@ public class ShiroConfig {
         ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
         factoryBean.setSecurityManager(securityManager);
         Map<String, String> map = new HashMap<>(2);
-        map.put("/logout", "logout");
+        map.put("/logout.html", "logout");
         map.put("/**", "anon");
         factoryBean.setFilterChainDefinitionMap(map);
         factoryBean.setSuccessUrl("/index");
