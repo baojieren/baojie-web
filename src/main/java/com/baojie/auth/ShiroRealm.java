@@ -3,6 +3,7 @@ package com.baojie.auth;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.baojie.entity.User;
 import com.baojie.service.UserService;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -11,7 +12,7 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class ShiroRealm extends AuthorizingRealm {
 
     @Reference(url = "${url}", timeout = 30000)
@@ -39,7 +40,9 @@ public class ShiroRealm extends AuthorizingRealm {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         User user = null;
         try {
-            //user = userService.getOne()
+            User u = new User();
+            u.setUserName(token.getUsername());
+            user = userService.selectOne(new EntityWrapper<>(u));
         } catch (Exception e) {
             e.printStackTrace();
         }
