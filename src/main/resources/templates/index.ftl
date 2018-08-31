@@ -136,5 +136,22 @@
         $("[name='email']").show();
         $("#rbj-sign-tip").hide();
     }
+
+    $("#rbj-sign-btn").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "/getBingImgJson.html",
+            dataType: "json",
+            async: true,
+            success: function (dat) {
+                bingArray = dat;
+                $("#rbj-bing h3").text(bingArray[index].copyright);
+                $("body").css({
+                    "background": "url(" + bingArray[index].url + ")",
+                    "backgroundAttachment": "fixed"
+                });
+            }
+        });
+    })
 </script>
 </html>

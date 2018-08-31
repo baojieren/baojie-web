@@ -40,14 +40,14 @@ public class ShiroRealm extends AuthorizingRealm {
         User user = null;
         try {
             User u = new User();
-            u.setUserName(token.getUsername());
+            u.setUsername(token.getUsername());
             user = userService.getUserByCond(u);
         } catch (Exception e) {
             e.printStackTrace();
         }
         if (user != null) {
             //盐值
-            ByteSource salt = ByteSource.Util.bytes(user.getUserName());
+            ByteSource salt = ByteSource.Util.bytes(user.getUsername());
             return new SimpleAuthenticationInfo(user, user.getPassword(), salt, this.getName());
         }
         return null;
