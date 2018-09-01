@@ -19,7 +19,7 @@
         <#--导航栏内容-->
             <div class="collapse navbar-collapse" id="rbj-nav-content">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="http://119.29.239.91:8080/dubbo/"><span class="glyphicon glyphicon-retweet"> 服务治理</span></a></li>
+                    <li><a href="http://www.foreach.com.cn:8080/dubbo/" target="_blank"><span class="glyphicon glyphicon-retweet"> 服务治理</span></a></li>
                 <#--登陆可见-->
                     <#if Session["userInfo"]?exists>
                         <li class="dropdown">
