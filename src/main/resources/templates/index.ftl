@@ -43,7 +43,7 @@
             <a onclick="switchBingImg(-1)" style="font-size: 30px;color: white; text-decoration: none">
                 <i class="glyphicon glyphicon-hand-right"></i>
             </a>&nbsp;&nbsp;
-            <a onclick="" style="font-size: 30px;color: white">
+            <a id="downLoadImg" style="font-size: 30px;color: white">
                 <i class="glyphicon glyphicon-hand-down"></i>
             </a>
             <#--<button id="" type="button" class="btn btn-warning">保存到本地</button>&nbsp;-->
@@ -139,6 +139,11 @@
             "backgroundAttachment": "fixed"
         });
     }
+
+    // 下载图片
+    $("#downLoadImg").click(function () {
+        window.location.href = '/downLoadImg.html?imgUrl=' + bingArray[index].url + '&imgName=' + bingArray[index].copyright;
+    })
 </script>
 <#--登陆modal-->
 <script>
