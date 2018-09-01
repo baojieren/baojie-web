@@ -7,9 +7,9 @@
     <meta content="宝杰任" name="keywords">
     <meta content="宝杰任" name="description">
     <meta content="宝杰任" name="author">
-    <#--<link rel="icon" href="/static/img/userLogo.png" type="image/x-icon">-->
-    <#--<link rel="shortcut icon" href="/static/img/userLogo.png" type="image/x-icon"/>-->
-    <#--<link rel="bookmark" href="/static/img/userLogo.png" type="image/x-icon"/>-->
+    <link rel="icon" href="/img/logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/logo.ico" type="image/x-icon"/>
+    <link rel="bookmark" href="/img/logo.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -51,7 +51,7 @@
         </div>
     </div>
 </div>
-<a href="http://www.miitbeian.gov.cn" style="position: fixed;width: 100%;bottom: 2px;color: white;text-align: right"
+<a href="http://www.miitbeian.gov.cn" style="position: fixed;bottom: 2px;right: 2px;color: white"
    target="_blank">黔ICP备18008276号</a>
 <#--登陆注册modal-->
 <div class="modal fade" id="rbj-sign-modal" tabindex="-1" role="dialog">
