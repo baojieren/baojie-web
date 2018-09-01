@@ -7,8 +7,9 @@ spring:
 # dubbo
 dubbo:
   application:
-    id: rbjWeb
-    name: rbjWebName
+    id: baoJieWeb
+    name: baoJieWeb
     qosEnable: false
-
-url: dubbo://119.29.239.91:20880
+  registry:
+    id: baoJieZookeeper
+    address: zookeeper://119.29.239.91:2181?client=curator

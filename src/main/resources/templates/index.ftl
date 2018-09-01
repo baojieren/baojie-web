@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>iu</title>
+    <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta content="宝杰任" name="keywords">
     <meta content="宝杰任" name="description">
@@ -85,6 +85,7 @@
 </body>
 <#--Bing-->
 <script>
+    document.title='\u200E';
     var bingArray;
     var index = 1;
     $(function () {

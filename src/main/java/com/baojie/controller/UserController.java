@@ -23,7 +23,12 @@ import java.time.LocalDateTime;
 @RequestMapping("/user")
 public class UserController extends BaseController {
 
-    @Reference(url = "${url}", timeout = 30000)
+    @Reference(
+            application = "${dubbo.application.id}",
+            registry = "${dubbo.registry.id}",
+            cache = "lru",
+            timeout = 6000
+    )
     private UserService userService;
 
     @PostMapping("/signIn.html")
