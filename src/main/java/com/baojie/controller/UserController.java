@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/user")
@@ -26,10 +27,16 @@ public class UserController extends BaseController {
     @Reference(
             application = "${dubbo.application.id}",
             registry = "${dubbo.registry.id}",
-            cache = "lru",
-            timeout = 6000
+            cache = "lru"
     )
     private UserService userService;
+
+    @RequestMapping("/test.html")
+    @ResponseBody
+    public String test() throws Exception {
+        Set<String> permissionListByUserId = userService.getPermissionListByUserId(1);
+        return JSON.toJSONString(permissionListByUserId);
+    }
 
     @PostMapping("/signIn.html")
     @ResponseBody
