@@ -4,7 +4,7 @@
         <#--手机可折叠-->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        data-target="#rbj-nav-content" aria-expanded="false">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -29,7 +29,7 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu" style="background-color: rgb(0, 0, 0, 0)">
-                                <li><a href="#"><span class="glyphicon glyphicon-user"> 个人信息</span></a></li>
+                                <#--<li><a href="#"><span class="glyphicon glyphicon-user"> 个人信息</span></a></li>-->
                                 <li role="separator" class="divider"></li>
                                 <li><a href="/logout.html"><span class="glyphicon glyphicon-off"> 退出</span></a></li>
                             </ul>
