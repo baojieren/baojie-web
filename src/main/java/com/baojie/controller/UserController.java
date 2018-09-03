@@ -1,10 +1,8 @@
 package com.baojie.controller;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
 import com.baojie.entity.ResultBean;
 import com.baojie.entity.User;
-import com.baojie.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -23,13 +21,6 @@ import java.util.Set;
 @Controller
 @RequestMapping("/user")
 public class UserController extends BaseController {
-
-    @Reference(
-            application = "${dubbo.application.id}",
-            registry = "${dubbo.registry.id}",
-            cache = "lru"
-    )
-    private UserService userService;
 
     @RequestMapping("/test.html")
     @ResponseBody

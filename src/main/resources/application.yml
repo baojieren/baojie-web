@@ -10,6 +10,9 @@ dubbo:
     id: baoJieWeb
     name: baoJieWeb
     qosEnable: false
+  consumer:
+    cache: lru
+    owner: baojie
   registry:
     id: baoJieZookeeper
     address: zookeeper://119.29.239.91:2181?client=curator
