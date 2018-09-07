@@ -32,6 +32,7 @@ public class UserController extends BaseController {
     @PostMapping("/signIn.html")
     @ResponseBody
     public String signIn(HttpServletRequest request, User user) {
+        ResultBean resultBean = new ResultBean();
         try {
             //登陆验证
             UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
@@ -39,11 +40,11 @@ public class UserController extends BaseController {
             subject.login(token);
             request.getSession().setAttribute("userInfo", (User) subject.getPrincipal());
         } catch (UnknownAccountException e) {
-            return JSON.toJSONString(ResultBean.failure("用户不存在"));
+            return JSON.toJSONString(resultBean.failure("用户不存在"));
         } catch (AuthenticationException e) {
-            return JSON.toJSONString(ResultBean.failure("用户名或密码错误"));
+            return JSON.toJSONString(resultBean.failure("用户名或密码错误"));
         }
-        return JSON.toJSONString(ResultBean.success("登陆成功"));
+        return JSON.toJSONString(resultBean.success("登陆成功"));
     }
 
     @PostMapping("/signUp.html")
@@ -58,15 +59,15 @@ public class UserController extends BaseController {
         String password2md5 = new SimpleHash("MD5", user.getPassword(), user.getUsername(), 1024).toString();
         user.setPassword(password2md5);
         ResultBean resultBean = userService.saveUser(user);
-        if (0 != resultBean.getState()) {
+        if (resultBean.isSuccess()) {
             //登陆
             UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), oldPassword);
             Subject subject = SecurityUtils.getSubject();
             subject.login(token);
             request.getSession().setAttribute("userInfo", (User) subject.getPrincipal());
-            return JSON.toJSONString(ResultBean.success(resultBean.getId(), "注册成功"));
+            return JSON.toJSONString(resultBean);
         }
-        return JSON.toJSONString(resultBean.getMessage());
+        return JSON.toJSONString(resultBean);
     }
 
 }

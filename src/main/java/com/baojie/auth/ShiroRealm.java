@@ -14,12 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ShiroRealm extends AuthorizingRealm {
 
-    @Reference(
-            application = "${dubbo.application.id}",
-            registry = "${dubbo.registry.id}",
-            cache = "lru",
-            timeout = 6000
-    )
+    @Reference()
     private UserService userService;
 
     @Override
