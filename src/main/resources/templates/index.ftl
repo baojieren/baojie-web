@@ -89,9 +89,16 @@
     var bingArray;
     var index = 1;
     $(function () {
+        debugger
+        var piexl='';
+        if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+            piexl='240x320';
+        } else {
+            piexl='1920x1080';
+        }
         $.ajax({
             type: "POST",
-            url: "/getBingImgJson.html",
+            url: "/getBingImgJson.html?piexl="+piexl,
             dataType: "json",
             async: true,
             success: function (dat) {

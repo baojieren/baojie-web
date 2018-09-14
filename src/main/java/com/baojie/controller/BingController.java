@@ -27,7 +27,7 @@ public class BingController extends BaseController {
      * 获取8天的bing图片json数据
      */
     @PostMapping("/getBingImgJson.html")
-    public String getBingImgJson() throws Exception {
+    public String getBingImgJson(String piexl) throws Exception {
         URL url = new URL("https://cn.bing.com/HPImageArchive.aspx?format=js&idx=-1&n=8");
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"));
@@ -45,7 +45,9 @@ public class BingController extends BaseController {
         for (Object o : jsonArray) {
             BingImg bingImg = new BingImg();
             JSONObject img = JSON.parseObject(o.toString());
-            bingImg.setUrl("https://cn.bing.com" + img.getString("url").trim());
+            String urlSub = img.getString("url").trim();
+            String imgUrl = urlSub.substring(0, urlSub.length() - 13) + piexl + urlSub.substring(urlSub.length() - 3);
+            bingImg.setUrl("https://cn.bing.com" + imgUrl);
             bingImg.setCopyright(img.getString("copyright").trim());
             bingImgs.add(bingImg);
         }
