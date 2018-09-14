@@ -46,7 +46,7 @@ public class BingController extends BaseController {
             BingImg bingImg = new BingImg();
             JSONObject img = JSON.parseObject(o.toString());
             String urlSub = img.getString("url").trim();
-            String imgUrl = urlSub.substring(0, urlSub.length() - 13) + piexl + urlSub.substring(urlSub.length() - 3);
+            String imgUrl = urlSub.substring(0, urlSub.length() - 13) + piexl + urlSub.substring(urlSub.length() - 4);
             bingImg.setUrl("https://cn.bing.com" + imgUrl);
             bingImg.setCopyright(img.getString("copyright").trim());
             bingImgs.add(bingImg);

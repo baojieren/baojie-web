@@ -89,10 +89,9 @@
     var bingArray;
     var index = 1;
     $(function () {
-        debugger
         var piexl='';
         if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-            piexl='240x320';
+            piexl='240x400';
         } else {
             piexl='1920x1080';
         }
