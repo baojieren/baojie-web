@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta content="宝杰任" name="keywords">
-    <meta content="宝杰任" name="description">
-    <meta content="宝杰任" name="author">
+    <meta content="baojie" name="keywords">
+    <meta content="baojie" name="description">
+    <meta content="baojie" name="author">
     <link rel="icon" href="/img/logo.ico" type="image/x-icon">
     <link rel="shortcut icon" href="/img/logo.ico" type="image/x-icon"/>
     <link rel="bookmark" href="/img/logo.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/limonte-sweetalert2/7.21.1/sweetalert2.all.min.js"></script>
     <style>
         .rbj-bg-color{
@@ -30,7 +30,7 @@
         }
     </style>
 </head>
-<body class="img-responsive">
+<body class="img-responsive" style="background-color: #2b2b2b">
 <#include "page/top.ftl">
 <#--bing-->
 <div id="rbj-bing" style="position: fixed; bottom: 30px">
