@@ -36,9 +36,7 @@ public class BingController extends BaseController {
         while ((inputLine = bufferedReader.readLine()) != null) {
             bing.append(inputLine);
         }
-
         List<BingImg> bingImgs = new ArrayList<>();
-
         JSONObject jsonObject = JSON.parseObject(bing.toString());
         String images = jsonObject.getString("images");
         JSONArray jsonArray = JSON.parseArray(images);
