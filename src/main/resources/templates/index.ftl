@@ -10,11 +10,6 @@
     <link rel="icon" href="/img/logo.ico" type="image/x-icon">
     <link rel="shortcut icon" href="/img/logo.ico" type="image/x-icon"/>
     <link rel="bookmark" href="/img/logo.ico" type="image/x-icon"/>
-    <#--<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
-    <#--<script src="/js/jquery.min.js"></script>-->
-    <#--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-    <#--<script src="/js/sweetalert2.all.min.js"></script>-->
-
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
