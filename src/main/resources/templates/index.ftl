@@ -10,10 +10,15 @@
     <link rel="icon" href="/img/logo.ico" type="image/x-icon">
     <link rel="shortcut icon" href="/img/logo.ico" type="image/x-icon"/>
     <link rel="bookmark" href="/img/logo.ico" type="image/x-icon"/>
-    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdn.bootcss.com/limonte-sweetalert2/7.21.1/sweetalert2.all.min.js"></script>
+    <#--<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">-->
+    <#--<script src="/js/jquery.min.js"></script>-->
+    <#--<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <#--<script src="/js/sweetalert2.all.min.js"></script>-->
+
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/sweetalert2.all.min.js"></script>
     <style>
         .rbj-bg-color{
             background-color: rgb(40, 40, 40, 0.6)
@@ -38,13 +43,13 @@
         <div class="col-md-12 col-sm-12">
             <h3 style="color: white"></h3>
             <a onclick="switchBingImg(1)" style="font-size: 30px;color: white; text-decoration: none">
-                <i class="glyphicon glyphicon-hand-left"></i>
+                <i class="glyphicon glyphicon-chevron-left"></i>
             </a>&nbsp;&nbsp;
             <a onclick="switchBingImg(-1)" style="font-size: 30px;color: white; text-decoration: none">
-                <i class="glyphicon glyphicon-hand-right"></i>
+                <i class="glyphicon glyphicon-chevron-right"></i>
             </a>&nbsp;&nbsp;
             <a id="downLoadImg" style="font-size: 30px;color: white">
-                <i class="glyphicon glyphicon-hand-down"></i>
+                <i class="glyphicon glyphicon-download-alt"></i>
             </a>
             <#--<button id="" type="button" class="btn btn-warning">保存到本地</button>&nbsp;-->
             <#--<button id="" type="button" class="btn btn-danger">保存到服务器</button>-->
