@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="baidu-site-verification" content="fXnSkPBzlh" />
     <meta charset="UTF-8">
-    <title></title>
+    <title>vip视频解析,爱奇艺,优酷,腾讯视频</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta content="baojie" name="keywords">
-    <meta content="baojie" name="description">
+    <meta content="vip视频解析,爱奇艺,优酷,腾讯视频" name="keywords">
+    <meta content="vip视频解析,爱奇艺,优酷,腾讯视频" name="description">
     <meta content="baojie" name="author">
     <link rel="icon" href="/img/logo.ico" type="image/x-icon">
     <link rel="shortcut icon" href="/img/logo.ico" type="image/x-icon"/>
@@ -16,7 +17,9 @@
     <script src="/js/sweetalert2.all.min.js"></script>
     <style>
         .rbj-bg-color{
-            background-color: rgb(40, 40, 40, 0.6)
+            background-color: rgb(40, 40, 40, 0.6);
+            font-weight: bold;
+            color: white;
         }
         #rbj-nav-content a{
             color: white;
@@ -32,25 +35,99 @@
 </head>
 <body class="img-responsive" style="background-color: #2b2b2b">
 <#include "page/top.ftl">
-<#--bing-->
-<div id="rbj-bing" style="position: fixed; bottom: 30px">
-    <div class="container-fluid">
-        <div class="col-md-12 col-sm-12">
-            <h3 style="color: white"></h3>
-            <a onclick="switchBingImg(1)" style="font-size: 30px;color: white; text-decoration: none">
-                <i class="glyphicon glyphicon-chevron-left"></i>
-            </a>&nbsp;&nbsp;
-            <a onclick="switchBingImg(-1)" style="font-size: 30px;color: white; text-decoration: none">
-                <i class="glyphicon glyphicon-chevron-right"></i>
-            </a>&nbsp;&nbsp;
-            <a id="downLoadImg" style="font-size: 30px;color: white">
-                <i class="glyphicon glyphicon-download-alt"></i>
-            </a>
-            <#--<button id="" type="button" class="btn btn-warning">保存到本地</button>&nbsp;-->
-            <#--<button id="" type="button" class="btn btn-danger">保存到服务器</button>-->
+<div id="rbj-search" class="container-fluid">
+    <div class="row">
+        <div class="col-xs-8 col-sm-6 col-md-4 col-lg-4 col-xs-offset-2 col-sm-offset-3 col-md-offset-4 col-lg-offset-4">
+            <div style="float: left">
+                <select id="apiType" class="form-control" style="max-width: 150px;border: none;background-color: #5cb85c;font-weight: bold">
+                    <option value="http://www.448521.com/yun/index.php?url=">万能接口1</option>
+                    <option value="http://jiexi.071811.cc/jx2.php?url=">万能接口2</option>
+                    <option value="http://jqaaa.com/jq3/?url=&url=">万能接口3</option>
+                    <option value="http://yun.baiyug.cn/vip/index.php?url=">万能接口4</option>
+                    <option value="https://jiexi.071811.cc/jx2.php?url=">万能接口5</option>
+                    <option value="http://api.xiaomil.com/a/index.php?url=">腾讯</option>
+                    <option value="http://api.pucms.com/?url=">爱奇艺1</option>
+                    <option value="http://api.baiyug.cn/vip/index.php?url=">爱奇艺2</option>
+                    <option value="https://api.flvsp.com/?url=">爱奇艺3</option>
+                    <option value="http://www.82190555.com/index/qqvod.php?url=">优酷</option>
+                    <option value="http://vip.jlsprh.com/index.php?url=">搜狐</option>
+                    <option value="http://2gty.com/apiurl/yun.php?url=">乐视</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <input id="videoUrlInput" type="text" class="form-control rbj-bg-color" placeholder="视频地址粘贴进来即可">
+                <span class="input-group-btn">
+                    <button class="btn btn-success" type="button" id="doPlay">免费播放</button>
+                </span>
+            </div>
         </div>
     </div>
 </div>
+<br>
+
+<div id="rbj-support-type" style="text-align: center;color: white;font-weight: bold;font-size: 24px" hidden><br>
+    <span class="label label-danger">基本主流视频网站都支持</span><br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-lg-3">
+                <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3802719212,804960187&fm=26&gp=0.jpg"
+                     style="width: 120px; height: 75px;" class="img-rounded">
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2577259750,1150388651&fm=58&s=2124D41287E16D014ECD49C6000010B3"
+                     style="width: 120px; height: 75px;" class="img-rounded">
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3648390168,1713673067&fm=58&s=6BC28852DD305C0354F4835E02001073&bpow=121&bpoh=75"
+                     style="width: 120px; height: 75px;" class="img-rounded">
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1570004253,204663066&fm=58&bpow=640&bpoh=480"
+                     style="width: 120px; height: 75px;" class="img-rounded">
+            </div>
+        </div>
+        <br><br>
+        <div class="row">
+            <div class="col-md-3 col-lg-3">
+                <img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3865467473,993803154&fm=58&s=77F62972CDA06C01187402EC0200E036&bpow=121&bpoh=75"
+                     style="width: 120px; height: 75px;" class="img-rounded">
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=2552131531,889738107&fm=58&s=CC87C712CDB7EE114E6B8546020070BB&bpow=121&bpoh=75"
+                     style="width: 120px; height: 75px;" class="img-rounded">
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <img src="http://img4.c.yinyuetai.com/others/admin/171030/0/22bf723198badac8e45d0be95d7bc291_0x0.png"
+                     class="img-rounded">
+            </div>
+            <div class="col-md-3 col-lg-3">
+                <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=592793815,3099896906&fm=58&s=FEC7E91ED4B1F9821E7D8CC400009031&bpow=121&bpoh=75"
+                     style="width: 120px; height: 75px;" class="img-rounded">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="rbj-video" style="text-align: center" hidden>
+    <iframe id="iframe" src="" width="60%" height="650px" frameborder="0"></iframe>
+</div>
+<#--bing-->
+<#--<div id="rbj-bing-title" style="position: fixed; bottom: 30px">-->
+    <#--<div class="container-fluid">-->
+        <#--<div class="col-md-12 col-sm-12">-->
+            <#--<h3 style="color: white"></h3>-->
+            <#--<a onclick="switchBingImg(1)" style="font-size: 30px;color: white; text-decoration: none">-->
+                <#--<i class="glyphicon glyphicon-chevron-left"></i>-->
+            <#--</a>&nbsp;&nbsp;-->
+            <#--<a onclick="switchBingImg(-1)" style="font-size: 30px;color: white; text-decoration: none">-->
+                <#--<i class="glyphicon glyphicon-chevron-right"></i>-->
+            <#--</a>&nbsp;&nbsp;-->
+            <#--<a id="downLoadImg" style="font-size: 30px;color: white">-->
+                <#--<i class="glyphicon glyphicon-download-alt"></i>-->
+            <#--</a>-->
+        <#--</div>-->
+    <#--</div>-->
+<#--</div>-->
 <a href="http://www.miitbeian.gov.cn" style="position: fixed;bottom: 2px;right: 2px;color: white"
    target="_blank">黔ICP备18008276号</a>
 <#--登陆注册modal-->
@@ -83,9 +160,31 @@
     </div>
 </div>
 </body>
+<#--video-->
+<script>
+    $(function () {
+        var videoUrlInput = $("#videoUrlInput").val();
+        if (videoUrlInput) {
+            $("#rbj-video").show();
+            var apiType = $("#apiType").val();
+            $("#iframe").attr({src: apiType + videoUrlInput + ""});
+        }else {
+            $("#rbj-support-type").show();
+        }
+    });
+
+    $("#doPlay").click(function () {
+        var videoUrlInput = $("#videoUrlInput").val();
+        if (videoUrlInput) {
+            $("#rbj-support-type").hide();
+            $("#rbj-video").show();
+            var apiType = $("#apiType").val();
+            $("#iframe").attr({src: apiType + videoUrlInput + ""});
+        }
+    })
+</script>
 <#--Bing-->
 <script>
-    document.title='\u200E';
     var bingArray;
     var index = 1;
     $(function () {
@@ -102,7 +201,7 @@
             async: true,
             success: function (dat) {
                 bingArray = dat;
-                $("#rbj-bing h3").text(bingArray[index].copyright);
+                $("#rbj-bing-title h3").text(bingArray[index].copyright);
                 $("body").css({
                     "background": "url(" + bingArray[index].url + ")",
                     "backgroundAttachment": "fixed"
@@ -140,7 +239,7 @@
         }
 
         index = index + count;
-        $("#rbj-bing h3").text(bingArray[index].copyright);
+        $("#rbj-bing-title h3").text(bingArray[index].copyright);
         $("body").css({
             "background": "url(" + bingArray[index].url + ")",
             "backgroundAttachment": "fixed"
