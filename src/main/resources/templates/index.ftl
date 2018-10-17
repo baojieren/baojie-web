@@ -97,8 +97,8 @@
                      style="width: 120px; height: 75px;" class="img-rounded">
             </div>
             <div class="col-md-3 col-lg-3">
-                <img src="http://img4.c.yinyuetai.com/others/admin/171030/0/22bf723198badac8e45d0be95d7bc291_0x0.png"
-                     class="img-rounded">
+                <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=4278866917,2478953267&fm=58&s=0DE6CD1393B06D805451B0D6000080B1&bpow=121&bpoh=75"
+                     style="width: 120px; height: 75px;" class="img-rounded">
             </div>
             <div class="col-md-3 col-lg-3">
                 <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=592793815,3099896906&fm=58&s=FEC7E91ED4B1F9821E7D8CC400009031&bpow=121&bpoh=75"
