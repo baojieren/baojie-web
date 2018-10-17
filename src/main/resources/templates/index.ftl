@@ -16,6 +16,9 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/sweetalert2.all.min.js"></script>
     <style>
+        body{
+            background-color: #2b2b2b;
+        }
         .rbj-bg-color{
             background-color: rgb(40, 40, 40, 0.6);
             font-weight: bold;
@@ -192,28 +195,28 @@
 <script>
     var bingArray;
     var index = 1;
-    $(function () {
-        var piexl='';
-        if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-            piexl='240x400';
-        } else {
-            piexl='1920x1080';
-        }
-        $.ajax({
-            type: "POST",
-            url: "/getBingImgJson.html?piexl="+piexl,
-            dataType: "json",
-            async: true,
-            success: function (dat) {
-                bingArray = dat;
-                $("#rbj-bing-title h3").text(bingArray[index].copyright);
-                $("body").css({
-                    "background": "url(" + bingArray[index].url + ")",
-                    "backgroundAttachment": "fixed"
-                });
-            }
-        });
-    });
+    // $(function () {
+    //     var piexl='';
+    //     if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    //         piexl='240x400';
+    //     } else {
+    //         piexl='1920x1080';
+    //     }
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "/getBingImgJson.html?piexl="+piexl,
+    //         dataType: "json",
+    //         async: true,
+    //         success: function (dat) {
+    //             bingArray = dat;
+    //             $("#rbj-bing-title h3").text(bingArray[index].copyright);
+    //             $("body").css({
+    //                 "background": "url(" + bingArray[index].url + ")",
+    //                 "backgroundAttachment": "fixed"
+    //             });
+    //         }
+    //     });
+    // });
 
     // 切换图片
     function switchBingImg(count) {
