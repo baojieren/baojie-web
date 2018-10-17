@@ -19,7 +19,7 @@
         .rbj-bg-color{
             background-color: rgb(40, 40, 40, 0.6);
             font-weight: bold;
-            color: white;
+            color: black;
         }
         #rbj-nav-content a{
             color: white;
@@ -39,20 +39,7 @@
     <div class="row">
         <div class="col-xs-8 col-sm-6 col-md-4 col-lg-4 col-xs-offset-2 col-sm-offset-3 col-md-offset-4 col-lg-offset-4">
             <div style="float: left">
-                <select id="apiType" class="form-control" style="max-width: 150px;border: none;background-color: #5cb85c;font-weight: bold">
-                    <option value="http://www.448521.com/yun/index.php?url=">万能接口1</option>
-                    <option value="http://jiexi.071811.cc/jx2.php?url=">万能接口2</option>
-                    <option value="http://jqaaa.com/jq3/?url=&url=">万能接口3</option>
-                    <option value="http://yun.baiyug.cn/vip/index.php?url=">万能接口4</option>
-                    <option value="https://jiexi.071811.cc/jx2.php?url=">万能接口5</option>
-                    <option value="http://api.xiaomil.com/a/index.php?url=">腾讯</option>
-                    <option value="http://api.pucms.com/?url=">爱奇艺1</option>
-                    <option value="http://api.baiyug.cn/vip/index.php?url=">爱奇艺2</option>
-                    <option value="https://api.flvsp.com/?url=">爱奇艺3</option>
-                    <option value="http://www.82190555.com/index/qqvod.php?url=">优酷</option>
-                    <option value="http://vip.jlsprh.com/index.php?url=">搜狐</option>
-                    <option value="http://2gty.com/apiurl/yun.php?url=">乐视</option>
-                </select>
+                <select id="apiType" class="form-control" style="max-width: 150px;border: none;background-color: #5cb85c;font-weight: bold"></select>
             </div>
             <div class="input-group">
                 <input id="videoUrlInput" type="text" class="form-control rbj-bg-color" placeholder="视频地址粘贴进来即可">
@@ -112,10 +99,10 @@
     <iframe id="iframe" src="" width="60%" height="650px" frameborder="0"></iframe>
 </div>
 <#--bing-->
-<#--<div id="rbj-bing-title" style="position: fixed; bottom: 30px">-->
-    <#--<div class="container-fluid">-->
-        <#--<div class="col-md-12 col-sm-12">-->
-            <#--<h3 style="color: white"></h3>-->
+<div id="rbj-bing-title" style="position: fixed; bottom: 30px">
+    <div class="container-fluid">
+        <div class="col-md-12 col-sm-12">
+            <h3 style="color: white"></h3>
             <#--<a onclick="switchBingImg(1)" style="font-size: 30px;color: white; text-decoration: none">-->
                 <#--<i class="glyphicon glyphicon-chevron-left"></i>-->
             <#--</a>&nbsp;&nbsp;-->
@@ -125,9 +112,9 @@
             <#--<a id="downLoadImg" style="font-size: 30px;color: white">-->
                 <#--<i class="glyphicon glyphicon-download-alt"></i>-->
             <#--</a>-->
-        <#--</div>-->
-    <#--</div>-->
-<#--</div>-->
+        </div>
+    </div>
+</div>
 <a href="http://www.miitbeian.gov.cn" style="position: fixed;bottom: 2px;right: 2px;color: white"
    target="_blank">黔ICP备18008276号</a>
 <#--登陆注册modal-->
@@ -162,6 +149,7 @@
 </body>
 <#--video-->
 <script>
+    var vipVideoUrlArr = [];
     $(function () {
         var videoUrlInput = $("#videoUrlInput").val();
         if (videoUrlInput) {
@@ -171,6 +159,22 @@
         }else {
             $("#rbj-support-type").show();
         }
+
+        $.ajax({
+            type: "POST",
+            url: "/vipVideoUrl/vipVideoUrlList.html",
+            dataType: "json",
+            async: true,
+            success: function (dat) {
+                if(dat.data!= null) {
+                    for (var idx = 1; idx <= dat.data.length; idx++) {
+                        vipVideoUrlArr.push(dat.data[idx].url);
+                        $("#apiType").append('<option value="'+idx+'">'+dat.data[idx].mark+'</option>')
+                    }
+                }
+            }
+        });
+
     });
 
     $("#doPlay").click(function () {
@@ -179,7 +183,8 @@
             $("#rbj-support-type").hide();
             $("#rbj-video").show();
             var apiType = $("#apiType").val();
-            $("#iframe").attr({src: apiType + videoUrlInput + ""});
+            var a = vipVideoUrlArr[apiType];
+            $("#iframe").attr({src: vipVideoUrlArr[apiType]+"" + videoUrlInput + ""});
         }
     })
 </script>
